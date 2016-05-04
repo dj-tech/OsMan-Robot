@@ -1,0 +1,6 @@
+{
+  "name": "Osman",
+  "tagline": "un super-sistema operativo",
+  "body": "### OsMan\r\nun super-sistema operativo\r\n## lanciare\r\nper lanciare OsMan su un altro os basta scrivere:\r\n'OsMan light'\r\n## algoritmi\r\nquesto os in verità è un algoritmo\r\n#di più\r\nper sapere di più sugli algoritmi leggete:\r\nhttps://www.google.it/intl/it/insidesearch/howsearchworks/algorithms.html\r\n### altro su OsMan\r\n## in C\r\nalcuni script sono stati scritti in C\r\n## su cosa è basata questa distro linux?\r\nsu Chromixium,Docker,angular.js,angularfire,node.js e ubuntu.\r\n## state sviluppandola versione \"touch\"?\r\nsi, ma questa è basata anche su ubuntu touch e su firefox os.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
