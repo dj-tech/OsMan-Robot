@@ -1,0 +1,7 @@
+--defualt
+--execpition
+--video
+--install
+--confirm
+--server
+</>=== ---security
