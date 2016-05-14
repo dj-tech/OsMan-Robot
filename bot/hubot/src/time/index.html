@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PinW lab</title>
+</head>
+<body>
+<html manifest="demo.appcache">
+<script>
+<script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+<script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing-api.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.9.2/coffee-script.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
+<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/mootools/1.5.0/mootools-nocompat-yui-compressed.js"></script>
+<script src="https://code.jquery.com/jquery-compat-3.0.0-alpha1.js"></script>
+<meta name="description" content="[use bin ubuntu acces of acaunt google]">
+<script src="https://code.jquery.com/jquery-compat-git.js"></script>
+<script src="https://github.com/AlgoLab/pinw/blob/master/public/js/index.js"></script>
+<script src="https://cdn.firebase.com/js/client/1.1.2/firebase.js"></script>
+<script src="path/to/angular.js"></script>
+<script src="path/to/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js">
+</script>
+<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+<script src="https://github.com/jasmine/jasmine/blob/master/src/core/base.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/tutorial/css/example.css">
+<input type="file" id="input">
+</script>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello pinW!";
+var x = Math.PI;            // Returns PI
+var y = Math.sqrt(16);      // Returns the square root of 16
+var d = new Date();
+var d = new Date(milliseconds);
+var d = new Date(dateString);
+var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+var pinW= ["ssh", "ip", "id", "nome"];
+x.push("operation = ...");
+document.getElementById("myH1").style.color = "red";
+</script>
+
+<Div>
+      <label> Nome: </ label>
+      <input  di tipo = "text"  modello ng = "yourName"  segnaposto = "Inserire un nome qui" >
+      <Hr>
+      <h1> Hello {{YourName}} ! </ h1>
+</ Div>
+
+
+<tabs>
+    <pane title="Localization">
+      <span>Date: {{ '2012-04-01' | date:'fullDate' }}</span><br>
+      <span>Currency: {{ 123456 | currency }}</span><br>
+      <span>Number: {{ 98765.4321 | number }}</span><br>
+    </pane>
+    <pane title="Pluralization">
+      <div ng-controller="BeerCounter">
+        <div ng-repeat="beerCount in beers">
+          <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
+</tabs>
+
+</body>
+
+<body class="tetris-body example-base">
+  <div>
+    <canvas id="canvas0" width="250" height="500"></canvas>
+    <canvas id="canvas1" width="250" height="500"></canvas>
+  </div>
+  <input type="button" id="restartButton" value="Restart Game" class="hide" />
+  <div id="gameInProgress">Game is in progress.  You will automatically join if either player leaves.</div>
+
+
+<script>
+  var canvas = $("#canvas0").get(0);
+  if (!canvas || !canvas.getContext || !canvas.getContext('2d'))
+    alert("You must use a browser that supports HTML5 Canvas to run this demo.");
+  function start() {
+    var tetrisRef = new Firebase('https://rw7gpb2jisy.firebaseio-demo.com/');
+    var tetrisController = new Tetris.Controller(tetrisRef);
+  }
+  var Tetris = { };
+  /**
+   * Various constants related to board size / drawing.
+   */
+  Tetris.BOARD_WIDTH = 10; // (in "blocks", not pixels)
+  Tetris.BOARD_HEIGHT = 20;
+  Tetris.BLOCK_SIZE_PIXELS = 25;
+  Tetris.BOARD_HEIGHT_PIXELS = Tetris.BOARD_HEIGHT * Tetris.BLOCK_SIZE_PIXELS;
+  Tetris.BOARD_WIDTH_PIXELS = Tetris.BOARD_WIDTH * Tetris.BLOCK_SIZE_PIXELS;
+  Tetris.BLOCK_BORDER_COLOR = "#484848";
+  Tetris.BLOCK_COLORS = { 'X': 'black', 'b': 'cyan', 'B': 'blue', 'O': 'orange',
+                          'Y': 'yellow', 'G': 'green', 'P': '#9370D8', 'R': 'red' };
+  Tetris.GRAVITY_DELAY = 300; // 300ms
+  Tetris.EMPTY_LINE  = "          ";
+  Tetris.FILLED_LINE = "XXXXXXXXXX";
+  Tetris.COMPLETE_LINE_PATTERN = /[^ ]{10}/;
+  // Pieces.  (Indexed by piece rotation (0-3), row (0-3), piece number (0-6))
+  Tetris.PIECES = [];
+  for (var i = 0; i < 4; i++) { Tetris.PIECES[i] = []; }
+  Tetris.PIECES[0][0] = [ "    ",   "    ",   "    ",   "    ",   "    ",   "    ",   "    " ];
+  Tetris.PIECES[0][1] = [ "    ",   "B   ",   "  O ",   " YY ",   " GG ",   " P  ",   "RR  " ];
+  Tetris.PIECES[0][2] = [ "bbbb",   "BBB ",   "OOO ",   " YY ",   "GG  ",   "PPP ",   " RR " ];
+  Tetris.PIECES[0][3] = [ "    ",   "    ",   "    ",   "    ",   "    ",   "    ",   "    " ];
+  Tetris.PIECES[1][0] = [ " b  ",   "    ",   "    ",   "    ",   "    ",   "    ",   "  R " ];
+  Tetris.PIECES[1][1] = [ " b  ",   " B  ",   "OO  ",   " YY ",   " G  ",   " P  ",   " RR " ];
+  Tetris.PIECES[1][2] = [ " b  ",   " B  ",   " O  ",   " YY ",   " GG ",   " PP ",   " R  " ];
+  Tetris.PIECES[1][3] = [ " b  ",   "BB  ",   " O  ",   "    ",   "  G ",   " P  ",   "    " ];
+  Tetris.PIECES[2][0] = [ "    ",   "    ",   "    ",   "    ",   "    ",   "    ",   "    " ];
+  Tetris.PIECES[2][1] = [ "    ",   "    ",   "    ",   " YY ",   " GG ",   "    ",   "RR  " ];
+  Tetris.PIECES[2][2] = [ "bbbb",   "BBB ",   "OOO ",   " YY ",   "GG  ",   "PPP ",   " RR " ];
+  Tetris.PIECES[2][3] = [ "    ",   "  B ",   "O   ",   "    ",   "    ",   " P  ",   "    " ];
+  Tetris.PIECES[3][0] = [ " b  ",   "    ",   "    ",   "    ",   "    ",   "    ",   "  R " ];
+  Tetris.PIECES[3][1] = [ " b  ",   " BB ",   " O  ",   " YY ",   " G  ",   " P  ",   " RR " ];
+  Tetris.PIECES[3][2] = [ " b  ",   " B  ",   " O  ",   " YY ",   " GG ",   "PP  ",   " R  " ];
+  Tetris.PIECES[3][3] = [ " b  ",   " B  ",   " OO ",   "    ",   "  G ",   " P  ",   "    " ];
+  /**
+   * Stores the state of a tetris board and handles drawing it.
+   */
+  Tetris.Board = function (canvas, playerRef) {
+    this.context = canvas.getContext('2d');
+    this.playerRef = playerRef;
+    this.snapshot = null;
+    this.isMyBoard = false;
+    // Listen for changes to our board.
+    var self = this;
+    playerRef.on('value', function(snapshot) {
+      self.snapshot = snapshot;
+      self.draw();
+    });
+  };
+  /**
+   * Draws the contents of the board as well as the current piece.
+   */
+  Tetris.Board.prototype.draw = function () {
+    // Clear canvas.
+    this.context.clearRect(0, 0, Tetris.BOARD_WIDTH_PIXELS, Tetris.BOARD_HEIGHT_PIXELS);
+    // Iterate over columns / rows in board data and draw each non-empty block.
+    for (var x = 0; x < Tetris.BOARD_WIDTH; x++) {
+      for (var y = 0; y < Tetris.BOARD_HEIGHT; y++) {
+        var colorValue = this.getBlockVal(x, y);
+        if (colorValue != ' ') {
+          // Calculate block position and draw a correctly-colored square.
+          var left = x * Tetris.BLOCK_SIZE_PIXELS;
+          var top = y * Tetris.BLOCK_SIZE_PIXELS;
+          this.context.fillStyle = Tetris.BLOCK_COLORS[colorValue];
+          this.context.fillRect(left, top, Tetris.BLOCK_SIZE_PIXELS, Tetris.BLOCK_SIZE_PIXELS);
+          this.context.lineWidth = 1;
+          this.context.strokeStyle = Tetris.BLOCK_BORDER_COLOR;
+          this.context.strokeRect(left, top, Tetris.BLOCK_SIZE_PIXELS, Tetris.BLOCK_SIZE_PIXELS);
+        }
+      }
+    }
+    // If there's a falling piece, draw it.
+    if (this.snapshot !== null && this.snapshot.hasChild('piece')) {
+      var piece = Tetris.Piece.fromSnapshot(this.snapshot.child('piece'));
+      this.drawPiece(piece);
+    }
+    // If this isn't my board, dim it out with a 25% opacity black rectangle.
+    if (!this.isMyBoard) {
+      this.context.fillStyle = "rgba(0, 0, 0, 0.25)";
+      this.context.fillRect(0, 0, Tetris.BOARD_WIDTH_PIXELS, Tetris.BOARD_HEIGHT_PIXELS);
+    }
+  };
+  /**
+   * Draw the currently falling piece.
+   */
+  Tetris.Board.prototype.drawPiece = function (piece) {
+    var self = this;
+    this.forEachBlockOfPiece(piece,
+      function (x, y, colorValue) {
+        var left = x * Tetris.BLOCK_SIZE_PIXELS;
+        var top = y * Tetris.BLOCK_SIZE_PIXELS;
+        self.context.fillStyle = Tetris.BLOCK_COLORS[colorValue];
+        self.context.fillRect(left, top, Tetris.BLOCK_SIZE_PIXELS, Tetris.BLOCK_SIZE_PIXELS);
+        self.context.lineWidth = 1;
+        self.context.strokeStyle = Tetris.BLOCK_BORDER_COLOR;
+        self.context.strokeRect(left, top, Tetris.BLOCK_SIZE_PIXELS, Tetris.BLOCK_SIZE_PIXELS);
+      });
+  };
+  /**
+   * Clear the board contents.
+  */
+  Tetris.Board.prototype.clear = function () {
+    for (var row = 0; row < Tetris.BOARD_HEIGHT; row++) {
+      this.setRow(row, Tetris.EMPTY_LINE);
+    }
+  };
+  /**
+   * Given a Tetris.Piece, returns true if it has collided with the board (i.e. its current position
+   * and rotation causes it to overlap blocks already on the board).
+   */
+  Tetris.Board.prototype.checkForPieceCollision = function (piece) {
+    var collision = false;
+    var self = this;
+    this.forEachBlockOfPiece(piece,
+      function (x, y, colorValue) {
+        // NOTE: we explicitly allow y < 0 since pieces can be partially visible.
+        if (x < 0 || x >= Tetris.BOARD_WIDTH || y >= Tetris.BOARD_HEIGHT) {
+          collision = true;
+        }
+        else if (y >= 0 && self.getBlockVal(x, y) != ' ') {
+          collision = true; // collision with board contents.
+        }
+      }, /*includeInvalid=*/ true);
+    return collision;
+  };
+  /**
+   * Given a Tetris.Piece that has landed, add it to the board contents.
+   */
+  Tetris.Board.prototype.addLandedPiece = function (piece) {
+    var self = this;
+    // We go out of our way to set an entire row at a time just so the rows show up as
+    // child_added in the graphical debugger, rather than child_changed.
+    var rowY = -1, rowContents = null;
+    this.forEachBlockOfPiece(piece,
+      function (x, y, val) {
+        if (y != rowY) {
+          if (rowY !== -1)
+            self.setRow(rowY, rowContents);
+          rowContents = self.getRow(y);
+          rowY = y;
+        }
+        rowContents = rowContents.substring(0, x).concat(val)
+          .concat(rowContents.substring(x + 1, Tetris.BOARD_WIDTH));
+      });
+    if (rowY !== -1)
+      self.setRow(rowY, rowContents);
+  };
+  /**
+   * Check for any completed lines (no gaps) and remove them, then return the number
+   * of removed lines.
+   */
+  Tetris.Board.prototype.removeCompletedRows = function () {
+    // Start at the bottom of the board, working up, removing completed lines.
+    var copyFrom = Tetris.BOARD_HEIGHT - 1;
+    var copyTo = copyFrom;
+    var completedRows = 0;
+    while (copyFrom >= 0) {
+                var fromContents = this.getRow(copyFrom);
+      // See if the line is complete (if so, we'll skip it)
+      if (fromContents.match(Tetris.COMPLETE_LINE_PATTERN)) {
+        copyFrom--;
+        completedRows++;
+      } else {
+        // Copy the row down (to fill the gap from any removed rows) and continue on.
+        this.setRow(copyTo, fromContents);
+        copyFrom--;
+        copyTo--;
+      }
+    }
+    return completedRows;
+  };
+  /**
+   * Generate the specified number of junk rows at the bottom of the board. Return true if the added
+   * rows overflowed the board (in which case the player loses).
+   */
+  Tetris.Board.prototype.addJunkRows = function (numRows) {
+    var overflow = false;
+    // First, check if any blocks are going to overflow off the top of the screen.
+    var topRowContents = this.getRow(numRows - 1);
+    overflow = topRowContents.match(/[^ ]/);
+    // Shift rows up to make room for the new rows.
+    for (var i = 0; i < Tetris.BOARD_HEIGHT - numRows; i++) {
+      var moveLineContents = this.getRow(i + numRows);
+      this.setRow(i, moveLineContents);
+    }
+    // Fill the bottom with junk rows that are full except for a single random gap.
+    var gap = Math.floor(Math.random() * Tetris.FILLED_LINE.length);
+    var junkRow = Tetris.FILLED_LINE.substring(0, gap) + ' ' + Tetris.FILLED_LINE.substring(gap + 1);
+    for (i = Tetris.BOARD_HEIGHT - numRows; i < Tetris.BOARD_HEIGHT; i++) {
+      this.setRow(i, junkRow);
+    }
+    return overflow;
+  };
+  /**
+   * Helper to enumerate the blocks that make up a particular piece.  Calls fn() for each block,
+   * passing the x and y position of the block and the color value.  If includeInvalid is true, it
+   * includes blocks that would fall outside the bounds of the board.
+   */
+  Tetris.Board.prototype.forEachBlockOfPiece = function (piece, fn, includeInvalid) {
+    for (var blockY = 0; blockY < 4; blockY++) {
+      for (var blockX = 0; blockX < 4; blockX++) {
+        var colorValue = Tetris.PIECES[piece.rotation][blockY][piece.pieceNum].charAt(blockX);
+        if (colorValue != ' ') {
+          var x = piece.x + blockX, y = piece.y + blockY;
+          if (includeInvalid || (x >= 0 && x < Tetris.BOARD_WIDTH && y >= 0 && y < Tetris.BOARD_HEIGHT)) {
+            fn(x, y, colorValue);
+          }
+        }
+      }
+    }
+  };
+  Tetris.Board.prototype.getRow = function (y) {
+    var row = (y < 10) ? ('0' + y) : ('' + y); // Pad row so they sort nicely in debugger. :-)
+    var rowContents = this.snapshot === null ? null : this.snapshot.child('board/' + row).val();
+    return rowContents || Tetris.EMPTY_LINE;
+  };
+  Tetris.Board.prototype.getBlockVal = function (x, y) {
+    return this.getRow(y).charAt(x);
+  };
+  Tetris.Board.prototype.setRow = function (y, rowContents) {
+    var row = (y < 10) ? ('0' + y) : ('' + y); // Pad row so they sort nicely in debugger. :-)
+    if (rowContents === Tetris.EMPTY_LINE)
+      rowContents = null; // delete empty lines so we get remove / added events in debugger. :-)
+    this.playerRef.child('board').child(row).set(rowContents);
+  };
+  Tetris.Board.prototype.setBlockVal = function (x, y, val) {
+    var rowContents = this.getRow(y);
+    rowContents = rowContents.substring(0, x) + val + rowContents.substring(x+1);
+    this.setRow(y, rowContents);
+  };
+  /**
+   * Immutable object representing a falling piece along with its rotation and board position.
+   * Has helpers for generating mutated Tetris.Piece objects (e.g. rotated or dropped).
+   */
+  Tetris.Piece = function (pieceNum, x, y, rotation) {
+    if (arguments.length > 0) {
+      this.pieceNum = pieceNum;
+      this.x = x;
+      this.y = y;
+      this.rotation = rotation;
+    } else {
+      // Initialize new random piece.
+      this.pieceNum = Math.floor(Math.random() * 7);
+      this.x = 4; // "center" it.
+      this.y = -2; // this will make the bottom line of the piece visible.
+      this.rotation = 0;
+    }
+  };
+  /**
+   * Create a piece from a Firebase snapshot representing a piece.
+   */
+  Tetris.Piece.fromSnapshot = function (snapshot) {
+    var piece = snapshot.val();
+    return new Tetris.Piece(piece.pieceNum, piece.x, piece.y, piece.rotation);
+  };
+  /**
+   * Writes the current piece data into Firebase.
+   */
+  Tetris.Piece.prototype.writeToFirebase = function (pieceRef) {
+    pieceRef.set({pieceNum: this.pieceNum, x: this.x, y: this.y, rotation: this.rotation});
+  };
+  Tetris.Piece.prototype.drop = function () {
+    return new Tetris.Piece(this.pieceNum, this.x, this.y + 1, this.rotation);
+  };
+  Tetris.Piece.prototype.rotate = function () {
+    return new Tetris.Piece(this.pieceNum, this.x, this.y, (this.rotation + 1) % 4);
+  };
+  Tetris.Piece.prototype.moveLeft = function () {
+    return new Tetris.Piece(this.pieceNum, this.x - 1, this.y, this.rotation);
+  };
+  Tetris.Piece.prototype.moveRight = function () {
+    return new Tetris.Piece(this.pieceNum, this.x + 1, this.y, this.rotation);
+  };
+  /**
+   * Manages joining the game, responding to keypresses, making the piece drop, etc.
+   */
+  Tetris.PlayingState = { Watching: 0, Joining: 1, Playing: 2 };
+  Tetris.Controller = function (tetrisRef) {
+    this.tetrisRef = tetrisRef;
+    this.createBoards();
+    this.playingState = Tetris.PlayingState.Watching;
+    this.waitToJoin();
+  };
+  Tetris.Controller.prototype.createBoards = function () {
+    this.boards = [];
+    for(var i = 0; i <= 1; i++) {
+      var playerRef = this.tetrisRef.child('player' + i);
+      var canvas = $('#canvas' + i).get(0);
+      this.boards.push(new Tetris.Board(canvas, playerRef));
+    }
+  };
+  Tetris.Controller.prototype.waitToJoin = function() {
+    var self = this;
+        // Listen on 'online' location for player0 and player1.
+    this.tetrisRef.child('player0/online').on('value', function(onlineSnap) {
+      if (onlineSnap.val() === null && self.playingState === Tetris.PlayingState.Watching) {
+        self.tryToJoin(0);
+      }
+    });
+    this.tetrisRef.child('player1/online').on('value', function(onlineSnap) {
+      if (onlineSnap.val() === null && self.playingState === Tetris.PlayingState.Watching) {
+        self.tryToJoin(1);
+      }
+    });
+  };
+  /**
+   * Try to join the game as the specified playerNum.
+   */
+  Tetris.Controller.prototype.tryToJoin = function(playerNum) {
+    // Set ourselves as joining to make sure we don't try to join as both players. :-)
+    this.playingState = Tetris.PlayingState.Joining;
+    // Use a transaction to make sure we don't conflict with other people trying to join.
+    var self = this;
+    this.tetrisRef.child('player' + playerNum + '/online').transaction(function(onlineVal) {
+      if (onlineVal === null) {
+        return true; // Try to set online to true.
+      } else {
+        return; // Somebody must have beat us.  Abort the transaction.
+      }
+    }, function(error, committed) {
+      if (committed) { // We got in!
+        self.playingState = Tetris.PlayingState.Playing;
+        self.startPlaying(playerNum);
+      } else {
+        self.playingState = Tetris.PlayingState.Watching;
+      }
+    });
+  };
+  /**
+   * Once we've joined, enable controlling our player.
+   */
+  Tetris.Controller.prototype.startPlaying = function (playerNum) {
+    this.myPlayerRef = this.tetrisRef.child('player' + playerNum);
+    this.opponentPlayerRef = this.tetrisRef.child('player' + (1 - playerNum));
+    this.myBoard = this.boards[playerNum];
+    this.myBoard.isMyBoard = true;
+    this.myBoard.draw();
+    // Clear our 'online' status when we disconnect so somebody else can join.
+    this.myPlayerRef.child('online').onDisconnect().remove();
+    // Detect when other player pushes rows to our board.
+    this.watchForExtraRows();
+    // Detect when game is restarted by other player.
+    this.watchForRestart();
+    $('#gameInProgress').hide();
+    var self = this;
+    $('#restartButton').show();
+    $("#restartButton").click(function () {
+      self.restartGame();
+    });
+    this.initializePiece();
+    this.enableKeyboard();
+    this.resetGravity();
+  };
+  Tetris.Controller.prototype.initializePiece = function() {
+    this.fallingPiece = null;
+    var pieceRef = this.myPlayerRef.child('piece');
+    var self = this;
+    // Watch for changes to the current piece (and initialize it if it's null).
+    pieceRef.on('value', function(snapshot) {
+      if (snapshot.val() === null) {
+        var newPiece = new Tetris.Piece();
+        newPiece.writeToFirebase(pieceRef);
+      } else {
+        self.fallingPiece = Tetris.Piece.fromSnapshot(snapshot);
+      }
+    });
+  };
+  /**
+   * Sets up handlers for all keyboard commands.
+   */
+  Tetris.Controller.prototype.enableKeyboard = function () {
+    var self = this;
+    $(document).on('keydown', function (evt) {
+      if (self.fallingPiece === null)
+        return; // piece isn't initialized yet.
+      var keyCode = evt.which;
+      var key = { space:32, left:37, up:38, right:39, down:40 };
+      var newPiece = null;
+      switch (keyCode) {
+        case key.left:
+          newPiece = self.fallingPiece.moveLeft();
+          break;
+        case key.up:
+          newPiece = self.fallingPiece.rotate();
+          break;
+        case key.right:
+          newPiece = self.fallingPiece.moveRight();
+          break;
+        case key.down:
+          newPiece = self.fallingPiece.drop();
+                 break;
+        case key.space:
+          // Drop as far as we can.
+          var droppedPiece = self.fallingPiece;
+          do {
+            newPiece = droppedPiece;
+            droppedPiece = droppedPiece.drop();
+          } while (!self.myBoard.checkForPieceCollision(droppedPiece));
+          break;
+      }
+      if (newPiece !== null) {
+        // If the new piece position / rotation is valid, update self.fallingPiece and firebase.
+        if (!self.myBoard.checkForPieceCollision(newPiece)) {
+          // If the keypress moved the piece down, reset gravity.
+          if (self.fallingPiece.y != newPiece.y) {
+            self.resetGravity();
+          }
+          newPiece.writeToFirebase(self.myPlayerRef.child('piece'));
+        }
+        return false; // handled
+      }
+      return true;
+    });
+  };
+  /**
+   * Sets a timer to make the piece repeatedly drop after GRAVITY_DELAY ms.
+   */
+  Tetris.Controller.prototype.resetGravity = function () {
+    // If there's a timer already active, clear it first.
+    if (this.gravityIntervalId !== null) {
+      clearInterval(this.gravityIntervalId);
+    }
+    var self = this;
+    this.gravityIntervalId = setInterval(function() {
+      self.doGravity();
+    }, Tetris.GRAVITY_DELAY);
+  };
+  Tetris.Controller.prototype.doGravity = function () {
+    if (this.fallingPiece === null)
+      return; // piece isn't initialized yet.
+    var newPiece = this.fallingPiece.drop();
+    // If we've hit the bottom, add the (pre-drop) piece to the board and create a new piece.
+    if (this.myBoard.checkForPieceCollision(newPiece)) {
+      this.myBoard.addLandedPiece(this.fallingPiece);
+      // Check for completed lines and if appropriate, push extra rows to our opponent.
+      var completedRows = this.myBoard.removeCompletedRows();
+      var rowsToPush = (completedRows === 4) ? 4 : completedRows - 1;
+      if (rowsToPush > 0)
+        this.opponentPlayerRef.child('extrarows').push(rowsToPush);
+      // Create new piece (it'll be initialized to a random piece at the top of the screen).
+      newPiece = new Tetris.Piece();
+      // Is the board full?
+      if (this.myBoard.checkForPieceCollision(newPiece))
+        this.gameOver();
+    }
+    newPiece.writeToFirebase(this.myPlayerRef.child('piece'));
+  };
+  /**
+   * Detect when our opponent pushes extra rows to us.
+   */
+  Tetris.Controller.prototype.watchForExtraRows = function () {
+    var self = this;
+    var extraRowsRef = this.myPlayerRef.child('extrarows');
+    extraRowsRef.on('child_added', function(snapshot) {
+      var rows = snapshot.val();
+      extraRowsRef.child(snapshot.key()).remove();
+      var overflow = self.myBoard.addJunkRows(rows);
+      if (overflow)
+        self.gameOver();
+      // Also move piece up to avoid collisions.
+      if (self.fallingPiece) {
+        self.fallingPiece.y -= rows;
+        self.fallingPiece.writeToFirebase(self.myPlayerRef.child('piece'));
+      }
+    });
+  };
+  /**
+   * Detect when our opponent restarts the game.
+   */
+  Tetris.Controller.prototype.watchForRestart = function () {
+    var self = this;
+    var restartRef = this.myPlayerRef.child('restart');
+    restartRef.on('value', function(snap) {
+      if (snap.val() === 1) {
+        restartRef.set(0);
+        self.resetMyBoardAndPiece();
+      }
+    });
+  };
+  Tetris.Controller.prototype.gameOver = function () {
+    this.restartGame();
+  };
+  Tetris.Controller.prototype.restartGame = function () {
+    this.opponentPlayerRef.child('restart').set(1);
+    this.resetMyBoardAndPiece();
+  };
+  Tetris.Controller.prototype.resetMyBoardAndPiece = function () {
+    this.myBoard.clear();
+    var newPiece = new Tetris.Piece();
+    newPiece.writeToFirebase(this.myPlayerRef.child('piece'));
+  };
+  start();
+</script>
+</body>
+</html>
+<!-- saved from url=(0029)http://pintronweb.algolab.eu/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>PinW | A Pintronic Pintronator</title>
+
+  
+  <link rel="icon" type="image/png" href="http://pintronweb.algolab.eu/img/dalec.ico">
+
+<!-- <link href="/css/bootstrap.min.css"      rel="stylesheet" media="screen">  -->
+<link href="./PinW _ A Pintronic Pintronator_files/font-awesome.min.css" rel="stylesheet" media="screen">
+<link href="./PinW _ A Pintronic Pintronator_files/main.css" rel="stylesheet" media="screen">
+<link href="./PinW _ A Pintronic Pintronator_files/lavish2.css" rel="stylesheet" media="screen">
+<link href="./PinW _ A Pintronic Pintronator_files/sweet-alert.css" rel="stylesheet" media="screen">
+<link href="./PinW _ A Pintronic Pintronator_files/jquery-ui.min.css" rel="stylesheet" media="screen">
+<link href="./PinW _ A Pintronic Pintronator_files/bootstrapValidator.min.css" rel="stylesheet" media="screen">
+<link href="./PinW _ A Pintronic Pintronator_files/jquery-timepicker.css" rel="stylesheet" media="screen">
+<link href="./PinW _ A Pintronic Pintronator_files/bootstrap-table.css" rel="stylesheet" media="screen">
+<link href="./PinW _ A Pintronic Pintronator_files/sticky-footer.css" rel="stylesheet" media="screen">
+
+
+<style type="text/css">:root .container > .infoBoxList > .shareInfoBox
+{display:none !important;}</style><style type="text/css"></style><script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/sweet-alert.min.js"></script>
+<script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/jquery.min.js"></script>
+<script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/jquery-timepicker.js"></script>
+<script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/navbar.js"></script>
+<script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/bootstrap-table.js"></script>
+
+  <script type="text/javascript" src="./PinW _ A Pintronic Pintronator_files/index.js"></script>
+<link rel="stylesheet" type="text/css" href="chrome-extension://pkehgijcmpdhfbdbbnkijodmdjhbjlgp/skin/socialwidgets.css"></head>
+<body>
+
+
+
+
+  
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://pintronweb.algolab.eu/">PinW</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li><a href="http://pintronweb.algolab.eu/results">Results</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+          <li><a data-toggle="modal" data-target="#login">Login</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="loginLabel">Enter nickname and password to login</h4>
+      </div>
+      <div class="modal-body">
+        
+        <form role="form" class="form-horizontal" method="post" action="http://pintronweb.algolab.eu/login">
+          <div class="form-group">
+            <label for="InputUser" class="col-md-4 control-label">Nickname</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" id="InputUser" placeholder="Enter nickname" name="InputUser" required="" autofocus="autofocus">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="InputPassword" class="col-md-4 control-label">Password</label>
+            <div class="col-md-8">
+              <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="InputPassword" required="">
+            </div>
+          </div>
+
+          
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="./PinW _ A Pintronic Pintronator_files/owpq53W.jpg" alt="" class="img-responsive">
+        <div class="carousel-caption">
+        <p class="enorme">Pintron, a pintronic pintronator!</p>
+        <a href="http://pintronweb.algolab.eu/quick_new_job" class="btn btn-primary btn-lg">
+          <i class="fa fa-cube"></i> Create a new job!
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div><div class="sweet-overlay" tabindex="-1"></div><div class="sweet-alert" tabindex="-1"><div class="icon error"><span class="x-mark"><span class="line left"></span><span class="line right"></span></span></div><div class="icon warning"> <span class="body"></span> <span class="dot"></span> </div> <div class="icon info"></div> <div class="icon success"> <span class="line tip"></span> <span class="line long"></span> <div class="placeholder"></div> <div class="fix"></div> </div> <div class="icon custom"></div> <h2>Title</h2><p>Text</p><button class="cancel" tabindex="2">Cancel</button><button class="confirm" tabindex="1">OK</button></div></div></body></html>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+<body ng-app="starter" ng-controller="ListCtrl">
+    <ion-header-bar class="top">
+      <h1 class="title">Items</h1>
+      <button class="button button-icon ion-plus" ng-click="addItem()">
+      </button>
+    </ion-header-bar>
+</body>
+<ion-content>
+  <ion-list>
+    <ion-item ng-repeat="item in items">
+      {{item.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>
